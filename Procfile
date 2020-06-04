@@ -1,0 +1,1 @@
+web: gunicorn okayama_blog.wsgi --log-file -

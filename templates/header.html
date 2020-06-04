@@ -1,0 +1,31 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">ブログサイト</a>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+      </li>
+      {% if request.user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'okayama_app:add' %}">投稿する</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'users:users' pk=user.pk %}">{{request.user.username}}</a> 
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'users:logout' %}">ログアウト</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'users:login' %}">ログイン</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+ </nav>
+ 
+  
